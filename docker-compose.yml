@@ -1,0 +1,33 @@
+version: "3.9"
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: secure-auth-app
+
+    ports:
+      - "8080:8080"
+
+    volumes:
+      # Data volumes
+      - seed-data:/data
+      - cron-output:/cron
+
+      # Key files (mounted read-only)
+      - ./student_private.pem:/app/student_private.pem:ro
+      - ./student_public.pem:/app/student_public.pem:ro
+      - ./instructor_public.pem:/app/instructor_public.pem:ro
+
+      # For local dev only (not required in evaluation)
+      - ./encrypted_seed.txt:/app/encrypted_seed.txt:ro
+
+    environment:
+      TZ: "UTC"
+
+    restart: unless-stopped
+
+volumes:
+  seed-data:
+  cron-output:
