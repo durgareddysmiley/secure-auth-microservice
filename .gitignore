@@ -1,0 +1,39 @@
+# ===========================
+#   PROJECT GITIGNORE
+# ===========================
+
+# Do NOT ignore student keys for this assignment
+# student_private.pem
+# student_public.pem
+
+# Do NOT ignore instructor_public.pem
+
+# ---------------------------
+# Sensitive runtime files
+# ---------------------------
+encrypted_seed.txt
+
+# ---------------------------
+# Python cache & build files
+# ---------------------------
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# ---------------------------
+# Environment / config files
+# ---------------------------
+.env
+
+# ---------------------------
+# IDE / editor folders
+# ---------------------------
+.vscode/
+.idea/
+
+# ---------------------------
+# OS junk files
+# ---------------------------
+*.DS_Store
+Thumbs.db
